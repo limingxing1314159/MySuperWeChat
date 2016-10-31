@@ -20,12 +20,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.hyphenate.chatuidemo"
-        minSdkVersion 11
-        targetSdkVersion 22
+        minSdkVersion 17
+        targetSdkVersion 23
         multiDexEnabled true
     }
 
