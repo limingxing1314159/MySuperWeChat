@@ -24,9 +24,9 @@ public class SplashActivity extends BaseActivity {
 		super.onCreate(arg0);
 
 		RelativeLayout rootLayout = (RelativeLayout) findViewById(R.id.splash_root);
-		TextView versionText = (TextView) findViewById(R.id.tv_version);
-
-		versionText.setText(getVersion());
+//		TextView versionText = (TextView) findViewById(R.id.tv_version);
+//
+//		versionText.setText(getVersion());
 		AlphaAnimation animation = new AlphaAnimation(0.3f, 1.0f);
 		animation.setDuration(1500);
 		rootLayout.startAnimation(animation);
@@ -60,7 +60,7 @@ public class SplashActivity extends BaseActivity {
 						Thread.sleep(sleepTime);
 					} catch (InterruptedException e) {
 					}
-					startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+					startActivity(new Intent(SplashActivity.this, GuideActivity.class));
 					finish();
 				}
 			}
