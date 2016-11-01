@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/guide_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/em_splash">
+    android:background="#232325">
 
 
+    <ImageView
+        android:id="@+id/iv_guide_logo"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/icon_logo"/>
     <Button
         android:id="@+id/btn_guide_register"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="@string/register"
+        android:onClick="onClick"
         android:layout_marginLeft="200dp"
         android:layout_marginTop="5dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="90dp" />
+        android:layout_marginBottom="100dp" />
 
     <Button
         android:id="@+id/btn_guide_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginLeft="200dp"
+        android:onClick="onClick"
         android:text="@string/login"
         android:background="@drawable/em_button_login_bg"
         android:layout_above="@+id/btn_guide_register"
