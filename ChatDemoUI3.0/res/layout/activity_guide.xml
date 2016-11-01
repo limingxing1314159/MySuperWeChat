@@ -7,19 +7,24 @@
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_guide_register"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/register"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="5dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="90dp"
-        android:id="@+id/button" />
+        android:layout_marginBottom="90dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_guide_login"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
         android:text="@string/login"
-        android:layout_above="@+id/button"
+        android:background="@drawable/em_button_login_bg"
+        android:layout_above="@+id/btn_guide_register"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp" />
 </RelativeLayout>
