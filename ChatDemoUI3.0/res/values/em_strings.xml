@@ -336,4 +336,5 @@
     <!-- lint -->
     <string name="delete_contact">Delete contact</string>
     <string name="loading_more">loading more...</string>
+
 </resources>
