@@ -5,14 +5,14 @@
     android:background="#eff2f6"
     android:orientation="vertical" >
 
-
+    <include android:id="@+id/lr_title" layout="@layout/view_layout_title"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1" >
 
         <RelativeLayout
-            android:id="@+id/rl_username"
+            android:id="@+id/rl_login_username"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginLeft="28dp"
@@ -20,7 +20,7 @@
             android:background="#fff" >
 
             <ImageView
-                android:id="@+id/iv_username"
+                android:id="@+id/iv_login_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -29,7 +29,7 @@
                 android:src="@drawable/em_icon_account" />
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/et_login_username"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
@@ -42,17 +42,17 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_password"
+            android:id="@+id/rl_login_password"
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:layout_below="@id/rl_username"
+            android:layout_below="@id/rl_login_username"
             android:layout_marginLeft="28dp"
             android:layout_marginRight="28dp"
             android:layout_marginTop="10dp"
             android:background="#fff" >
 
             <ImageView
-                android:id="@+id/iv_password"
+                android:id="@+id/iv_login_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -61,7 +61,7 @@
                 android:src="@drawable/em_icon_pwd" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/et_login_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
@@ -76,13 +76,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rl_password"
+            android:layout_below="@id/rl_login_password"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="30dp"
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/btn_login"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dip"
@@ -100,6 +101,7 @@
         </LinearLayout>
 
             <Button
+                android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/em_button_register_bg"
