@@ -267,6 +267,9 @@ public class LoginActivity extends BaseActivity {
         if (autoLogin) {
             return;
         }
+        if (SuperWeChatHelper.getInstance().getCurrentUsernName()!=null){
+            etLoginUsername.setText(SuperWeChatHelper.getInstance().getCurrentUsernName());
+        }
     }
 
     @OnClick({R.id.img_back, R.id.btn_login, R.id.btn_register})
@@ -281,6 +284,14 @@ public class LoginActivity extends BaseActivity {
             case R.id.btn_register:
                 MFGT.gotoRegister(this);
                 break;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (pd!=null) {
+            pd.dismiss();
         }
     }
 }
