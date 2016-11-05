@@ -27,9 +27,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hyphenate.chat.EMChatRoom;
-import cn.ucai.superwechat.R;
 
 import java.util.List;
+
+import cn.ucai.superwechat.R;
 
 public class ChatRoomAdapter extends ArrayAdapter<EMChatRoom> {
 

@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2016 Hyphenate Inc. All rights reserved.
- * <p/>
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -52,7 +52,7 @@ import com.umeng.update.UmengUpdateAgent;
 
 import java.util.List;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.ucai.superwechat.Constant;
 import cn.ucai.superwechat.R;
@@ -67,8 +67,8 @@ import cn.ucai.superwechat.widget.MFViewPager;
 
 @SuppressLint("NewApi")
 public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedChangeListener,ViewPager.OnPageChangeListener{
-    protected static final String TAG = "MainActivity";
 
+    protected static final String TAG = "MainActivity";
     //	// textview for unread message count
 //	private TextView unreadLabel;
 //	// textview for unread event message
@@ -81,17 +81,18 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
 //	private int currentTabIndex;
     // user logged into another device
     public boolean isConflict = false;
-    @BindView(R.id.txt_left)
-    TextView txtLeft;
-    @BindView(R.id.img_right)
-    ImageView imgRight;
-    @BindView(R.id.layout_viewpage)
-    MFViewPager layoutViewpage;
-    @BindView(R.id.layout_tabhost)
-    DMTabHost layoutTabhost;
+    @Bind(R.id.txt_left)
+    TextView mTxtLeft;
+    @Bind(R.id.img_right)
+    ImageView mImgRight;
+    @Bind(R.id.layout_viewpage)
+    MFViewPager mLayoutViewpage;
+    @Bind(R.id.layout_tabhost)
+    DMTabHost mLayoutTabhost;
     // user account was removed
     private boolean isCurrentAccountRemoved = false;
-    MainTabAdpter adapter;
+
+    MainTabAdpter adpter;
 
 
     /**
@@ -114,8 +115,8 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
         requestPermissions();
         initView();
         umeng();
-        checkAccount();
 
+        checkAccount();
 
         inviteMessgeDao = new InviteMessgeDao(this);
         UserDao userDao = new UserDao(this);
@@ -166,7 +167,6 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
         }
     }
 
-
     private void savePower() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             String packageName = getPackageName();
@@ -207,21 +207,27 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
 //		mTabs[2] = (Button) findViewById(R.id.btn_setting);
 //		// select first tab
 //		mTabs[0].setSelected(true);
-        txtLeft.setVisibility(View.VISIBLE);
-        imgRight.setVisibility(View.VISIBLE);
-        adapter = new MainTabAdpter(getSupportFragmentManager());
-        adapter.clear();
-        layoutViewpage.setAdapter(adapter);
-        layoutViewpage.setOffscreenPageLimit(4);
-        adapter.addFragment(new ConversationListFragment(),getString(R.string.app_name));
-        adapter.addFragment(new ContactListFragment(),getString(R.string.contacts));
-        adapter.addFragment(new DiscoverFragment(),getString(R.string.discover));
-        adapter.addFragment(new SettingsFragment(),getString(R.string.me));
-        adapter.notifyDataSetChanged();
-        layoutTabhost.setChecked(0);
-        layoutTabhost.setOnCheckedChangeListener(this);
-        layoutViewpage.setOnPageChangeListener(this);
+        mTxtLeft.setVisibility(View.VISIBLE);
+        mImgRight.setVisibility(View.VISIBLE);
+        adpter = new MainTabAdpter(getSupportFragmentManager());
+        adpter.clear();
+        mLayoutViewpage.setAdapter(adpter);
+        mLayoutViewpage.setOffscreenPageLimit(4);
+        adpter.addFragment(new ConversationListFragment(),getString(R.string.app_name));
+        adpter.addFragment(new ContactListFragment(),getString(R.string.contacts));
+        adpter.addFragment(new DiscoverFragment(),getString(R.string.diagnose));
+        adpter.addFragment(new PeofileFragment(),getString(R.string.me));
+        adpter.notifyDataSetChanged();
+        mLayoutTabhost.setChecked(0);
+        mLayoutTabhost.setOnCheckedChangeListener(this);
+        mLayoutViewpage.setOnPageChangeListener(this);
     }
+
+    /**
+     * on tab clicked
+     *
+     * @param view
+     */
 
     EMMessageListener messageListener = new EMMessageListener() {
 
@@ -322,24 +328,24 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
     }
 
     @Override
-    public void onCheckedChange(int checkedPosition, boolean byUser) {
-        layoutViewpage.setCurrentItem(checkedPosition,false);
-    }
-
-    @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
     }
 
     @Override
     public void onPageSelected(int position) {
-        layoutTabhost.setChecked(position);
-        layoutViewpage.setCurrentItem(position);
+        mLayoutTabhost.setChecked(position);
+        mLayoutViewpage.setCurrentItem(position);
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onCheckedChange(int checkedPosition, boolean byUser) {
+        mLayoutViewpage.setCurrentItem(checkedPosition,false);
     }
 
     public class MyContactListener implements EMContactListener {

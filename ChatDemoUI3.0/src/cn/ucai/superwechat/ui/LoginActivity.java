@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2016 Hyphenate Inc. All rights reserved.
- * <p/>
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,9 +33,10 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.domain.User;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.SuperWeChatApplication;
 import cn.ucai.superwechat.SuperWeChatHelper;
@@ -56,22 +57,21 @@ import cn.ucai.superwechat.utils.ResultUtils;
 public class LoginActivity extends BaseActivity {
     private static final String TAG = "LoginActivity";
     public static final int REQUEST_CODE_SETNICK = 1;
-    @BindView(R.id.img_back)
-    ImageView imgBack;
-    @BindView(R.id.txt_title)
-    TextView txtTitle;
-    @BindView(R.id.et_login_username)
-    EditText etLoginUsername;
-    @BindView(R.id.et_login_password)
-    EditText etLoginPassword;
+    @Bind(R.id.img_back)
+    ImageView mImgBack;
+    @Bind(R.id.txt_title)
+    TextView mTxtTitle;
+    @Bind(R.id.et_username)
+    EditText mEtUsername;
+    @Bind(R.id.et_password)
+    EditText mEtPassword;
 
     private boolean progressShow;
     private boolean autoLogin = false;
-
-    String currentUsername = null;
-    String currentPassword = null;
-    ProgressDialog pd = null;
-    LoginActivity mContext;
+    String currentUsername ;
+    String currentPassword ;
+    ProgressDialog pd;
+    LoginActivity mContect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,24 +89,25 @@ public class LoginActivity extends BaseActivity {
 
         setListener();
         initView();
-        mContext = this;
+        mContect = this;
+
     }
 
     private void initView() {
         if (SuperWeChatHelper.getInstance().getCurrentUsernName() != null) {
-            etLoginUsername.setText(SuperWeChatHelper.getInstance().getCurrentUsernName());
+            mEtUsername.setText(SuperWeChatHelper.getInstance().getCurrentUsernName());
         }
-        imgBack.setVisibility(View.VISIBLE);
-        txtTitle.setVisibility(View.VISIBLE);
-        txtTitle.setText(R.string.login);
+        mImgBack.setVisibility(View.VISIBLE);
+        mTxtTitle.setVisibility(View.VISIBLE);
+        mTxtTitle.setText(R.string.login);
     }
 
     private void setListener() {
         // if user changed, clear the password
-        etLoginUsername.addTextChangedListener(new TextWatcher() {
+        mEtUsername.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                etLoginPassword.setText(null);
+                mEtPassword.setText(null);
             }
 
             @Override
@@ -130,8 +131,8 @@ public class LoginActivity extends BaseActivity {
             Toast.makeText(this, R.string.network_isnot_available, Toast.LENGTH_SHORT).show();
             return;
         }
-        currentUsername = etLoginUsername.getText().toString().trim();
-        currentPassword = etLoginPassword.getText().toString().trim();
+        currentUsername = mEtUsername.getText().toString().trim();
+        currentPassword = mEtPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(currentUsername)) {
             Toast.makeText(this, R.string.User_name_cannot_be_empty, Toast.LENGTH_SHORT).show();
@@ -143,7 +144,7 @@ public class LoginActivity extends BaseActivity {
         }
 
         progressShow = true;
-        pd = new ProgressDialog(mContext);
+        ProgressDialog pd = new ProgressDialog(LoginActivity.this);
         pd.setCanceledOnTouchOutside(false);
         pd.setOnCancelListener(new OnCancelListener() {
 
@@ -157,10 +158,10 @@ public class LoginActivity extends BaseActivity {
         pd.show();
 
         loginEMServer();
-
     }
 
     private void loginEMServer() {
+
         // After logout，the DemoDB may still be accessed due to async callback, so the DemoDB will be re-opened again.
         // close it before login to make sure DemoDB not overlap
         SuperWeChatDBManager.getInstance().closeDB();
@@ -171,13 +172,14 @@ public class LoginActivity extends BaseActivity {
         final long start = System.currentTimeMillis();
         // call login method
         Log.d(TAG, "EMClient.getInstance().login");
-        EMClient.getInstance().login(currentUsername, currentPassword, new EMCallBack() {
+        EMClient.getInstance().login(currentUsername, MD5.getMessageDigest(currentPassword), new EMCallBack() {
 
             @Override
             public void onSuccess() {
                 Log.d(TAG, "login: onSuccess");
-                loginAppServer();
 
+                loginAppServer();
+                loginSuccess();
             }
 
             @Override
@@ -200,42 +202,42 @@ public class LoginActivity extends BaseActivity {
                 });
             }
         });
-
     }
 
     private void loginAppServer() {
-        NetDao.login(mContext, currentUsername, currentPassword, new OkHttpUtils.OnCompleteListener<String>() {
+        NetDao.login(mContect, currentUsername, currentPassword, new OkHttpUtils.OnCompleteListener<String>() {
             @Override
             public void onSuccess(String s) {
-                L.e(TAG,"s="+s);
-                if (s!=null && s!=""){
-                    Result result = ResultUtils.getResultFromJson(s, User.class);
-                    if (result!=null && result.isRetMsg()){
-                        User user = (User) result.getRetData();
-                        if (user!=null){
-                            UserDao dao = new UserDao(mContext);
-                            dao.saveUser(user);
-                            SuperWeChatHelper.getInstance().setCurrentUser(user);
-                            loginSuccess();
+                L.e(TAG,"s = "+ s);
+                    if (s!=null && s!=""){
+                        Result result = ResultUtils.getResultFromJson(s, User.class);
+                        if (result!=null && result.isRetMsg()){
+                            User user = (User) result.getRetData();
+                            if (user!=null) {
+                                UserDao dao = new UserDao(mContect);
+                                dao.saveUser(user);
+                                SuperWeChatHelper.getInstance().setCurrentUser(user);
+                                loginSuccess();
+                            }
+                        }else {
+                            pd.dismiss();
+                            L.e(TAG,"login fail,"+result);
                         }
                     }else {
                         pd.dismiss();
-                        L.e(TAG,"login fail="+result);
                     }
-                }else {
-                    pd.dismiss();
-                }
             }
 
             @Override
             public void onError(String error) {
                 pd.dismiss();
-                L.e(TAG,"error="+error);
+                L.e(TAG,"onError = "+ error);
             }
         });
     }
 
     private void loginSuccess() {
+
         // ** manually load all local groups and conversation
         EMClient.getInstance().groupManager().loadAllGroups();
         EMClient.getInstance().chatManager().loadAllConversations();
@@ -260,15 +262,14 @@ public class LoginActivity extends BaseActivity {
         finish();
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
         if (autoLogin) {
             return;
         }
-        if (SuperWeChatHelper.getInstance().getCurrentUsernName()!=null){
-            etLoginUsername.setText(SuperWeChatHelper.getInstance().getCurrentUsernName());
+        if (SuperWeChatHelper.getInstance().getCurrentUsernName() != null) {
+            mEtUsername.setText(SuperWeChatHelper.getInstance().getCurrentUsernName());
         }
     }
 
