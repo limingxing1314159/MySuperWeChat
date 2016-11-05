@@ -232,9 +232,9 @@ public class ImageResizer extends ImageWorker {
 
 	/**
 	 * Calculate an inSampleSize for use in a
-	 * {@link android.graphics.BitmapFactory.Options} object when decoding
+	 * {@link BitmapFactory.Options} object when decoding
 	 * bitmaps using the decode* methods from
-	 * {@link android.graphics.BitmapFactory}. This implementation calculates
+	 * {@link BitmapFactory}. This implementation calculates
 	 * the closest inSampleSize that is a power of 2 and will result in the
 	 * final decoded bitmap having a width and height equal to or larger than
 	 * the requested width and height.

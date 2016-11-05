@@ -59,7 +59,7 @@ public class RobotsActivity extends BaseActivity {
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		setContentView(R.layout.em_fragment_robots);
-		inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 		ListView mListView = (ListView) findViewById(R.id.list);
 		swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
 		if (android.os.Build.VERSION.SDK_INT >= 14) {

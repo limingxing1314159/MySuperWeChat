@@ -33,10 +33,18 @@ public class EaseUserUtils {
         
         return null;
     }
+
     public static User getAppUserInfo(String username){
         if(userProvider != null)
             return userProvider.getAppUser(username);
 
+        return null;
+    }
+
+    public static User getCurrentAppUserInfo(){
+        String username = EMClient.getInstance().getCurrentUser();
+        if(userProvider != null)
+            return userProvider.getAppUser(username);
         return null;
     }
     
@@ -52,10 +60,10 @@ public class EaseUserUtils {
                 Glide.with(context).load(avatarResId).into(imageView);
             } catch (Exception e) {
                 //use default avatar
-                Glide.with(context).load(user.getAvatar()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.default_hd_avatar).into(imageView);
+                Glide.with(context).load(user.getAvatar()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.ease_default_avatar).into(imageView);
             }
         }else{
-            Glide.with(context).load(R.drawable.default_hd_avatar).into(imageView);
+            Glide.with(context).load(R.drawable.ease_default_avatar).into(imageView);
         }
     }
     
@@ -72,6 +80,7 @@ public class EaseUserUtils {
         	}
         }
     }
+
     /**
      * set user avatar
      * @param username
@@ -87,7 +96,7 @@ public class EaseUserUtils {
                 Glide.with(context).load(user.getAvatar()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.ease_default_avatar).into(imageView);
             }
         }else{
-            Glide.with(context).load(R.drawable.ease_default_avatar).into(imageView);
+            Glide.with(context).load(R.drawable.default_hd_avatar).into(imageView);
         }
     }
 
@@ -104,23 +113,29 @@ public class EaseUserUtils {
             }
         }
     }
-
-    public static void setCurrentAppUserAvatar(FragmentActivity activity, ImageView imageView) {
+    public static void setCurentAppUserAvatar(FragmentActivity activity, ImageView imageView) {
         String username = EMClient.getInstance().getCurrentUser();
         setAppUserAvatar(activity,username,imageView);
     }
 
-    public static void setCurrentAppUserNick(TextView textView) {
+
+    public static void setCurentAppUserNick(TextView textView) {
         String username = EMClient.getInstance().getCurrentUser();
         setAppUserNick(username,textView);
     }
 
     public static void setCurrentAppUserNameWithNo(TextView textView) {
         String username = EMClient.getInstance().getCurrentUser();
-        setAppUserName("微信号:",username,textView);
+        setAppUserName("微信号 : ",username,textView);
     }
 
-    private static void setAppUserName(String suffix,String username, TextView textView) {
-        textView.setText(suffix+username);
+    public static void setCurrentAppUserName(TextView textView) {
+        String username = EMClient.getInstance().getCurrentUser();
+        setAppUserName("",username,textView);
+    }
+
+    public static void setAppUserName(String suffix, String username, TextView textView) {
+        textView.setText(suffix + username);
     }
 }
+

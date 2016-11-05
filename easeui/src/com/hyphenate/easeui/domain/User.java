@@ -4,7 +4,6 @@ import com.hyphenate.easeui.utils.EaseCommonUtils;
 
 import java.io.Serializable;
 
-
 public class User implements Serializable {
 	private String muserName;
 	private String muserNick;

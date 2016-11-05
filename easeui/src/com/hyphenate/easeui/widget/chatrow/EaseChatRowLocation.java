@@ -92,7 +92,7 @@ public class EaseChatRowLocation extends EaseChatRow{
     /*
 	 * listener for map clicked
 	 */
-	protected class MapClickListener implements View.OnClickListener {
+	protected class MapClickListener implements OnClickListener {
 
 		LatLng location;
 		String address;

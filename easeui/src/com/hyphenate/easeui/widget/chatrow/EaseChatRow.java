@@ -86,7 +86,7 @@ public abstract class EaseChatRow extends LinearLayout {
      * @param position
      */
     public void setUpView(EMMessage message, int position,
-            EaseChatMessageList.MessageListItemClickListener itemClickListener) {
+            MessageListItemClickListener itemClickListener) {
         this.message = message;
         this.position = position;
         this.itemClickListener = itemClickListener;

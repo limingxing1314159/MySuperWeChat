@@ -17,13 +17,14 @@ import cn.ucai.superwechat.utils.L;
  */
 public class SplashActivity extends BaseActivity {
 	private static final String TAG = SplashActivity.class.getSimpleName();
+
 	private static final int sleepTime = 2000;
 	SplashActivity mContext;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
-		super.onCreate(arg0);
 		setContentView(R.layout.em_activity_splash);
+		super.onCreate(arg0);
 		mContext = this;
 	}
 

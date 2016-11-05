@@ -11,8 +11,10 @@ import android.widget.Toast;
 
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
-import cn.ucai.superwechat.R;
+
 import com.hyphenate.util.EMLog;
+
+import cn.ucai.superwechat.R;
 
 /**
  * Copyright (C) 2016 Hyphenate Inc. All rights reserved.

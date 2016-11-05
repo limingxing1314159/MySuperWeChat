@@ -28,9 +28,11 @@ import android.widget.Toast;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMGroupManager.EMGroupOptions;
 import com.hyphenate.chat.EMGroupManager.EMGroupStyle;
-import cn.ucai.superwechat.R;
+
 import com.hyphenate.easeui.widget.EaseAlertDialog;
 import com.hyphenate.exceptions.HyphenateException;
+
+import cn.ucai.superwechat.R;
 
 public class NewGroupActivity extends BaseActivity {
 	private EditText groupNameEditText;

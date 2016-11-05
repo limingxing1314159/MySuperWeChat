@@ -268,9 +268,9 @@ public class SuperWeChatModel {
         return PreferenceManager.getInstance().isCustomServerEnable();
     }
 
-    public void saveAppContact(User user) {
-            UserDao dao = new UserDao(context);
-            dao.saveAppContact(user);
+    public void saveAppContact(User user){
+        UserDao dao = new UserDao(context);
+        dao.saveAppContact(user);
     }
 
     public Map<String, User> getAppContactList() {
@@ -283,7 +283,6 @@ public class SuperWeChatModel {
         dao.saveAppContactList(contactList);
         return true;
     }
-
 
     enum Key{
         VibrateAndPlayToneOn,

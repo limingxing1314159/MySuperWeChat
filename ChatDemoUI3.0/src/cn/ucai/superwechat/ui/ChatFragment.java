@@ -29,6 +29,7 @@ import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMTextMessageBody;
 import cn.ucai.superwechat.Constant;
 import cn.ucai.superwechat.SuperWeChatHelper;
+
 import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.domain.EmojiconExampleGroupData;
 import cn.ucai.superwechat.domain.RobotUser;

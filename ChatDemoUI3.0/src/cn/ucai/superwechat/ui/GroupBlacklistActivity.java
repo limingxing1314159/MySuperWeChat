@@ -15,11 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hyphenate.chat.EMClient;
-import cn.ucai.superwechat.R;
+
 import com.hyphenate.exceptions.HyphenateException;
 
 import java.util.Collections;
 import java.util.List;
+
+import cn.ucai.superwechat.R;
 
 public class GroupBlacklistActivity extends BaseActivity {
 	private ListView listView;

@@ -16,10 +16,11 @@ package cn.ucai.superwechat.ui;
 import android.content.Intent;
 import android.os.Bundle;
 
-import cn.ucai.superwechat.R;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.widget.EaseAlertDialog;
 import com.hyphenate.easeui.widget.EaseAlertDialog.AlertDialogUser;
+
+import cn.ucai.superwechat.R;
 
 public class ForwardMessageActivity extends PickContactNoCheckboxActivity {
 	private EaseUser selectUser;

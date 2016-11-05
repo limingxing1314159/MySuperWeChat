@@ -24,12 +24,14 @@ import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMConversation.EMSearchDirection;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMTextMessageBody;
-import cn.ucai.superwechat.R;
+
 import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.hyphenate.util.DateUtils;
 
 import java.util.Date;
 import java.util.List;
+
+import cn.ucai.superwechat.R;
 
 public class GroupSearchMessageActivity extends BaseActivity implements OnClickListener{
     private ImageButton clearSearch;

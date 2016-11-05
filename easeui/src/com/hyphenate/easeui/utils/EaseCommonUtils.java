@@ -149,7 +149,7 @@ public class EaseCommonUtils {
 	/**
      * set initial letter of according user's nickname( username if no nickname)
      * 
-     * @param username
+     * @param user
      * @param user
      */
     public static void setUserInitialLetter(EaseUser user) {
@@ -190,6 +190,7 @@ public class EaseCommonUtils {
         }
         user.setInitialLetter(letter);
     }
+
     /**
      * set initial letter of according user's nickname( username if no nickname)
      *
@@ -234,7 +235,7 @@ public class EaseCommonUtils {
         }
         user.setInitialLetter(letter);
     }
-    
+
     /**
      * change the chat type to EMConversationType
      * @param chatType

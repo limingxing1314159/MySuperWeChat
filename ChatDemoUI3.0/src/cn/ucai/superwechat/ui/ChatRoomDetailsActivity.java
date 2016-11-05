@@ -36,11 +36,13 @@ import com.hyphenate.chat.EMChatRoom;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMConversation.EMConversationType;
-import cn.ucai.superwechat.R;
+
 import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.hyphenate.easeui.widget.EaseAlertDialog;
 import com.hyphenate.easeui.widget.EaseAlertDialog.AlertDialogUser;
 import com.hyphenate.easeui.widget.EaseExpandGridView;
+
+import cn.ucai.superwechat.R;
 
 public class ChatRoomDetailsActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = "ChatRoomDetailsActivity";
@@ -77,7 +79,7 @@ public class ChatRoomDetailsActivity extends BaseActivity implements OnClickList
 		loadingPB = (ProgressBar) findViewById(R.id.progressBar);
 		exitBtn = (Button) findViewById(R.id.btn_exit_grp);
 		deleteBtn = (Button) findViewById(R.id.btn_exitdel_grp);
-		RelativeLayout blacklistLayout = (RelativeLayout) findViewById(R.id.rl_blacklist);
+		RelativeLayout blacklistLayout = (RelativeLayout) findViewById( R.id.rl_blacklist);
 		RelativeLayout changeGroupNameLayout = (RelativeLayout) findViewById(R.id.rl_change_group_name);
 
 		RelativeLayout blockGroupMsgLayout = (RelativeLayout) findViewById(R.id.rl_switch_block_groupmsg);

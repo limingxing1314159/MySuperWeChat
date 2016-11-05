@@ -13,7 +13,6 @@
  */
 package cn.ucai.superwechat.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -73,7 +72,7 @@ public class GroupsActivity extends BaseActivity {
 		setContentView(R.layout.em_fragment_groups);
 
 		instance = this;
-		inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 		grouplist = EMClient.getInstance().groupManager().getAllGroups();
 		groupListView = (ListView) findViewById(R.id.list);
 		//show group list

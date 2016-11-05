@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import cn.ucai.superwechat.R;
 
+
 public class ContactItemView extends LinearLayout{
 
     private TextView unreadMsgView;

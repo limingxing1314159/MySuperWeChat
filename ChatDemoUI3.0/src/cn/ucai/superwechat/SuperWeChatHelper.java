@@ -96,8 +96,7 @@ public class SuperWeChatHelper {
 	private SuperWeChatModel demoModel = null;
 
     private User currentUser = null;
-
-    private Map<String, User> appContactList;
+    private Map<String ,User> appContactList;
 	
 	/**
      * sync groups status listener
@@ -591,7 +590,7 @@ public class SuperWeChatHelper {
             msg.setTo(groupId);
             msg.setMsgId(UUID.randomUUID().toString());
             msg.addBody(new EMTextMessageBody(inviter + " " +st3));
-            msg.setStatus(EMMessage.Status.SUCCESS);
+            msg.setStatus(Status.SUCCESS);
             // save invitation as messages
             EMClient.getInstance().chatManager().saveMessage(msg);
             // notify invitation message
@@ -715,8 +714,8 @@ public class SuperWeChatHelper {
     }
 	
 	private EaseUser getUserInfo(String username){
-        // To get instance of EaseUser, here we get it from the user list in memory
-        // You'd better cache it if you get it from your server
+		// To get instance of EaseUser, here we get it from the user list in memory
+		// You'd better cache it if you get it from your server
         EaseUser user = null;
         if(username.equals(EMClient.getInstance().getCurrentUser()))
             return getUserProfileManager().getCurrentUserInfo();
@@ -731,7 +730,7 @@ public class SuperWeChatHelper {
             EaseCommonUtils.setUserInitialLetter(user);
         }
         return user;
-    }
+	}
 
     private User getAppUserInfo(String username){
         // To get instance of EaseUser, here we get it from the user list in memory
@@ -870,8 +869,8 @@ public class SuperWeChatHelper {
 	
 	/**
 	 * update contact list
-	 * 
-	 * @param aContactList
+	 *
+     * @param aContactList
 	 */
 	public void setContactList(Map<String, EaseUser> aContactList) {
 		if(aContactList == null){
@@ -943,7 +942,7 @@ public class SuperWeChatHelper {
 	 /**
      * update user list to cache and database
      *
-     * @param contactInfoList
+      * @param contactInfoList
      */
     public void updateContactList(List<EaseUser> contactInfoList) {
          for (EaseUser u : contactInfoList) {
@@ -1268,10 +1267,10 @@ public class SuperWeChatHelper {
     }
 
     public User getCurrentUser() {
-        if (currentUser==null){
+        if (currentUser == null){
             String username = EMClient.getInstance().getCurrentUser();
-            L.e(TAG,"getCurrentUsername="+username);
-            currentUser = new User(username);
+            L.e(TAG,"getU="+username);
+            currentUser = new User();
         }
         return currentUser;
     }
@@ -1279,15 +1278,12 @@ public class SuperWeChatHelper {
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
-
-    /**
-     * update contact list
-     *
-     * @param aContactList
-     */
+/*
+ *
+ */
     public void setAppContactList(Map<String, User> aContactList) {
         if(aContactList == null){
-            if (appContactList != null) {
+            if (appContactList!= null) {
                 appContactList.clear();
             }
             return;
@@ -1296,21 +1292,13 @@ public class SuperWeChatHelper {
         appContactList = aContactList;
     }
 
-    /**
-     * save single contact
-     */
     public void saveAppContact(User user){
         appContactList.put(user.getMUserName(), user);
         demoModel.saveAppContact(user);
     }
 
-    /**
-     * get contact list
-     *
-     * @return
-     */
     public Map<String, User> getAppContactList() {
-        if (isLoggedIn() && (appContactList == null || appContactList.size()==0)) {
+        if (isLoggedIn() && appContactList == null) {
             appContactList = demoModel.getAppContactList();
         }
 
@@ -1322,11 +1310,6 @@ public class SuperWeChatHelper {
         return appContactList;
     }
 
-    /**
-     * update user list to cache and database
-     *
-     * @param contactInfoList
-     */
     public void updateAppContactList(List<User> contactInfoList) {
         for (User u : contactInfoList) {
             appContactList.put(u.getMUserName(), u);

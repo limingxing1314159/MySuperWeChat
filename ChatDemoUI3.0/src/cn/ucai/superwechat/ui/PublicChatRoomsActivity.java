@@ -73,7 +73,7 @@ public class PublicChatRoomsActivity extends BaseActivity {
 		etSearch = (EditText)findViewById(R.id.query);
 		ibClean = (ImageButton)findViewById(R.id.search_clear);
 		etSearch.setHint(R.string.search);
-		InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 		pb = (ProgressBar) findViewById(R.id.progressBar);
 		listView = (ListView) findViewById(R.id.list);
 		TextView title = (TextView) findViewById(R.id.tv_title);

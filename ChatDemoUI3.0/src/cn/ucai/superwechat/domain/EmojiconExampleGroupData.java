@@ -2,6 +2,7 @@ package cn.ucai.superwechat.domain;
 
 import cn.ucai.superwechat.SuperWeChatApplication;
 import cn.ucai.superwechat.R;
+
 import com.hyphenate.easeui.domain.EaseEmojicon;
 import com.hyphenate.easeui.domain.EaseEmojicon.Type;
 import com.hyphenate.easeui.domain.EaseEmojiconGroupEntity;
@@ -12,7 +13,7 @@ public class EmojiconExampleGroupData {
     
     private static int[] icons = new int[]{
         R.drawable.icon_002_cover,  
-        R.drawable.icon_007_cover,  
+        R.drawable.icon_007_cover,
         R.drawable.icon_010_cover,  
         R.drawable.icon_012_cover,  
         R.drawable.icon_013_cover,  

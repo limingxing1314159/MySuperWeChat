@@ -134,7 +134,7 @@ public class RecorderVideoActivity extends BaseActivity implements
 			} else {
 				mCamera = Camera.open(CameraInfo.CAMERA_FACING_FRONT);
 			}
-			Camera.Parameters camParams = mCamera.getParameters();
+			Parameters camParams = mCamera.getParameters();
 			mCamera.lock();
 			mSurfaceHolder = mVideoView.getHolder();
 			mSurfaceHolder.addCallback(this);
@@ -176,10 +176,10 @@ public class RecorderVideoActivity extends BaseActivity implements
 		}
 
 		// get all resolutions which camera provide
-		List<Camera.Size> resolutionList = Utils.getResolutionList(mCamera);
+		List<Size> resolutionList = Utils.getResolutionList(mCamera);
 		if (resolutionList != null && resolutionList.size() > 0) {
 			Collections.sort(resolutionList, new Utils.ResolutionComparator());
-			Camera.Size previewSize = null;
+			Size previewSize = null;
 			boolean hasSize = false;
 
 			// use 60*480 if camera support

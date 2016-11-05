@@ -3,13 +3,14 @@ package cn.ucai.superwechat.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+
 import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.runtimepermissions.PermissionsManager;
 import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.util.EasyUtils;
 
 /**
- * chat activity，EaseChatFragment was used {@link #EaseChatFragment}
+ * chat activity，EaseChatFragment was used {@link EaseChatFragment}
  *
  */
 public class ChatActivity extends BaseActivity{

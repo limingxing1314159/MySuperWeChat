@@ -44,10 +44,10 @@ import java.util.Set;
 /**
  * This class memory caching of bitmaps in conjunction with the
  * {@link ImageWorker} class and its subclasses. Use
- * {@link ImageCache#getInstance(android.support.v4.app.FragmentManager, ImageCacheParams)}
+ * {@link ImageCache#getInstance(FragmentManager, ImageCacheParams)}
  * to get an instance of this class, although usually a cache should be added
  * directly to an {@link ImageWorker} by calling
- * {@link ImageWorker#addImageCache(android.support.v4.app.FragmentManager, ImageCacheParams)}
+ * {@link ImageWorker#addImageCache(FragmentManager, ImageCacheParams)}
  * .
  */
 public class ImageCache {
@@ -69,7 +69,7 @@ public class ImageCache {
 	/**
 	 * Create a new ImageCache object using the specified parameters. This
 	 * should not be called directly by other classes, instead use
-	 * {@link ImageCache#getInstance(android.support.v4.app.FragmentManager, ImageCacheParams)}
+	 * {@link ImageCache#getInstance(FragmentManager, ImageCacheParams)}
 	 * to fetch an ImageCache instance.
 	 * 
 	 * @param cacheParams
