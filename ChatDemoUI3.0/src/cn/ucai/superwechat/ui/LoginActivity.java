@@ -33,10 +33,9 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.domain.User;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.SuperWeChatApplication;
 import cn.ucai.superwechat.SuperWeChatHelper;
@@ -57,13 +56,13 @@ import cn.ucai.superwechat.utils.ResultUtils;
 public class LoginActivity extends BaseActivity {
     private static final String TAG = "LoginActivity";
     public static final int REQUEST_CODE_SETNICK = 1;
-    @Bind(R.id.img_back)
+    @BindView(R.id.img_back)
     ImageView mImgBack;
-    @Bind(R.id.txt_title)
+    @BindView(R.id.txt_title)
     TextView mTxtTitle;
-    @Bind(R.id.et_username)
+    @BindView(R.id.et_login_username)
     EditText mEtUsername;
-    @Bind(R.id.et_password)
+    @BindView(R.id.et_login_password)
     EditText mEtPassword;
 
     private boolean progressShow;
@@ -71,7 +70,7 @@ public class LoginActivity extends BaseActivity {
     String currentUsername ;
     String currentPassword ;
     ProgressDialog pd;
-    LoginActivity mContect;
+    LoginActivity mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +88,7 @@ public class LoginActivity extends BaseActivity {
 
         setListener();
         initView();
-        mContect = this;
+        mContext = this;
 
     }
 
@@ -144,7 +143,7 @@ public class LoginActivity extends BaseActivity {
         }
 
         progressShow = true;
-        ProgressDialog pd = new ProgressDialog(LoginActivity.this);
+        pd = new ProgressDialog(LoginActivity.this);
         pd.setCanceledOnTouchOutside(false);
         pd.setOnCancelListener(new OnCancelListener() {
 
@@ -205,7 +204,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void loginAppServer() {
-        NetDao.login(mContect, currentUsername, currentPassword, new OkHttpUtils.OnCompleteListener<String>() {
+        NetDao.login(mContext, currentUsername, currentPassword, new OkHttpUtils.OnCompleteListener<String>() {
             @Override
             public void onSuccess(String s) {
                 L.e(TAG,"s = "+ s);
@@ -214,7 +213,7 @@ public class LoginActivity extends BaseActivity {
                         if (result!=null && result.isRetMsg()){
                             User user = (User) result.getRetData();
                             if (user!=null) {
-                                UserDao dao = new UserDao(mContect);
+                                UserDao dao = new UserDao(mContext);
                                 dao.saveUser(user);
                                 SuperWeChatHelper.getInstance().setCurrentUser(user);
                                 loginSuccess();

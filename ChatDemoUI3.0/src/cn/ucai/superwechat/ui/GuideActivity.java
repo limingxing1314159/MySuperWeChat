@@ -17,13 +17,13 @@ public class GuideActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_login, R.id.btn_register})
+    @OnClick({R.id.btn_guide_login, R.id.btn_guide_register})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_login:
+            case R.id.btn_guide_login:
                 MFGT.gotoLogin(this);
                 break;
-            case R.id.btn_register:
+            case R.id.btn_guide_register:
                 MFGT.gotoRegister(this);
                 break;
         }

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.easemob.redpacketui.utils.RedPacketUtil;
 import com.hyphenate.easeui.utils.EaseUserUtils;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.ucai.superwechat.Constant;
@@ -24,16 +24,16 @@ import cn.ucai.superwechat.utils.MFGT;
  */
 
 public class PeofileFragment extends Fragment {
-    @Bind(R.id.iv_profile_avatar)
+    @BindView(R.id.iv_profile_avatar)
     ImageView mIvProfileAvatar;
-    @Bind(R.id.tv_profile_nickname)
+    @BindView(R.id.tv_profile_nickname)
     TextView mTvProfileNickname;
-    @Bind(R.id.tv_profile_username)
+    @BindView(R.id.tv_profile_username)
     TextView mTvProfileUsername;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profole, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -47,8 +47,8 @@ public class PeofileFragment extends Fragment {
     }
 
     private void setUserInfo() {
-        EaseUserUtils.setCurentAppUserAvatar(getActivity(),mIvProfileAvatar);
-        EaseUserUtils.setCurentAppUserNick(mTvProfileNickname);
+        EaseUserUtils.setCurrentAppUserAvatar(getActivity(),mIvProfileAvatar);
+        EaseUserUtils.setCurrentAppUserNick(mTvProfileNickname);
         EaseUserUtils.setCurrentAppUserNameWithNo(mTvProfileUsername);
     }
 

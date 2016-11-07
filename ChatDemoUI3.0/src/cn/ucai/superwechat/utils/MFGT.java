@@ -38,8 +38,8 @@ public class MFGT {
     }
 
     public static void gotoSettings(Activity context){
-                startActivity(context, SettingsActivity.class);
-            }
+        startActivity(context, SettingsActivity.class);
+    }
 
     public static void gotoUserProfile(Activity context){
         startActivity(context, UserProfileActivity.class);

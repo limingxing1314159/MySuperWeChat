@@ -35,7 +35,7 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/tip_round_red_bg_shape"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="#ffffff"
             android:textSize="11sp"
             android:visibility="gone" />
     </RelativeLayout>

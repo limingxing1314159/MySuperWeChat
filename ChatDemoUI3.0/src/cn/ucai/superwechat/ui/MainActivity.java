@@ -52,7 +52,7 @@ import com.umeng.update.UmengUpdateAgent;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.ucai.superwechat.Constant;
 import cn.ucai.superwechat.R;
@@ -81,13 +81,13 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
 //	private int currentTabIndex;
     // user logged into another device
     public boolean isConflict = false;
-    @Bind(R.id.txt_left)
+    @BindView(R.id.txt_left)
     TextView mTxtLeft;
-    @Bind(R.id.img_right)
+    @BindView(R.id.img_right)
     ImageView mImgRight;
-    @Bind(R.id.layout_viewpage)
+    @BindView(R.id.layout_viewpage)
     MFViewPager mLayoutViewpage;
-    @Bind(R.id.layout_tabhost)
+    @BindView(R.id.layout_tabhost)
     DMTabHost mLayoutTabhost;
     // user account was removed
     private boolean isCurrentAccountRemoved = false;

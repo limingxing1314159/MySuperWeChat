@@ -32,7 +32,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.ucai.superwechat.I;
@@ -51,15 +51,15 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 
     private static final int REQUESTCODE_PICK = 1;
     private static final int REQUESTCODE_CUTTING = 2;
-    @Bind(R.id.img_back)
+    @BindView(R.id.img_back)
     ImageView mImgBack;
-    @Bind(R.id.txt_title)
+    @BindView(R.id.txt_title)
     TextView mTxtTitle;
-    @Bind(R.id.iv_userinfo_avatar)
+    @BindView(R.id.iv_userinfo_avatar)
     ImageView mIvUserinfoAvatar;
-    @Bind(R.id.tv_userinfo_nick)
+    @BindView(R.id.tv_userinfo_nick)
     TextView mTvUserinfoNick;
-    @Bind(R.id.tv_userinfo_name)
+    @BindView(R.id.tv_userinfo_name)
     TextView mTvUserinfoName;
 
     private ProgressDialog dialog;
@@ -84,8 +84,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
     }
 
     private void initListener() {
-        EaseUserUtils.setCurentAppUserAvatar(this, mIvUserinfoAvatar);
-        EaseUserUtils.setCurentAppUserNick(mTvUserinfoNick);
+        EaseUserUtils.setCurrentAppUserAvatar(this, mIvUserinfoAvatar);
+        EaseUserUtils.setCurrentAppUserNick(mTvUserinfoNick);
         EaseUserUtils.setCurrentAppUserName(mTvUserinfoName);
     }
 
@@ -210,7 +210,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
     private void updateLocatUser(User u) {
         user = u;
         SuperWeChatHelper.getInstance().saveAppContact(u);
-        EaseUserUtils.setCurentAppUserNick(mTvUserinfoNick);
+        EaseUserUtils.setCurrentAppUserNick(mTvUserinfoNick);
     }
 
     @Override

@@ -5,7 +5,7 @@
     android:background="#eff2f6"
     android:orientation="vertical" >
 
-    <include android:id="@+id/lr_title" layout="@layout/view_layout_title"/>
+    <include android:id="@+id/lr_login_title" layout="@layout/view_layout_title"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"

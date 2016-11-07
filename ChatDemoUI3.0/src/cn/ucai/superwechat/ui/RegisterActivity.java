@@ -26,7 +26,7 @@ import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.ucai.superwechat.I;
@@ -44,17 +44,17 @@ import cn.ucai.superwechat.utils.MFGT;
  *
  */
 public class RegisterActivity extends BaseActivity {
-    @Bind(R.id.img_back)
+    @BindView(R.id.img_back)
     ImageView mImgBack;
-    @Bind(R.id.txt_title)
+    @BindView(R.id.txt_title)
     TextView mTxtTitle;
-    @Bind(R.id.et_username)
+    @BindView(R.id.et_username)
     EditText mEtUsername;
-    @Bind(R.id.et_nickname)
+    @BindView(R.id.et_nickname)
     EditText mEtNickname;
-    @Bind(R.id.et_password)
+    @BindView(R.id.et_password)
     EditText mEtPassword;
-    @Bind(R.id.et_confirm_password)
+    @BindView(R.id.et_confirm_password)
     EditText mEtConfirmPassword;
     ProgressDialog pd = null;
     String username ;
