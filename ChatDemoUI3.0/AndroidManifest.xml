@@ -107,8 +107,7 @@
         <activity
             android:name="cn.ucai.superwechat.ui.FriendProfileActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="stateVisible" />
+            android:theme="@style/horizontal_slide" />
         <!-- 群组详情 -->
         <activity
             android:name="cn.ucai.superwechat.ui.GroupDetailsActivity"

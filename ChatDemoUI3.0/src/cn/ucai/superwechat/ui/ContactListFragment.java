@@ -218,7 +218,7 @@ public class ContactListFragment extends EaseContactListFragment {
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.delete_contact) {
-			try {
+            try {
                 // delete contact
                 deleteContact(toBeProcessUser);
                 // remove invitation message
@@ -227,11 +227,8 @@ public class ContactListFragment extends EaseContactListFragment {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-			return true;
-		}else if(item.getItemId() == R.id.add_to_blacklist){
-			moveToBlacklist(toBeProcessUsername);
-			return true;
-		}
+            return true;
+        }
 		return super.onContextItemSelected(item);
 	}
 
