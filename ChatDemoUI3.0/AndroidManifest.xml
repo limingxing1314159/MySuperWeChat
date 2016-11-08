@@ -99,6 +99,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"
             android:windowSoftInputMode="stateVisible" />
+        <activity
+        android:name="cn.ucai.superwechat.ui.AddFriendActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/horizontal_slide"
+        android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="cn.ucai.superwechat.ui.FriendProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="stateVisible" />
         <!-- 群组详情 -->
         <activity
             android:name="cn.ucai.superwechat.ui.GroupDetailsActivity"
