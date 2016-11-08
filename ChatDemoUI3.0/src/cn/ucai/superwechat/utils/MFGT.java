@@ -11,6 +11,7 @@ import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.ui.AddContactActivity;
 import cn.ucai.superwechat.ui.FriendProfileActivity;
 import cn.ucai.superwechat.ui.LoginActivity;
+import cn.ucai.superwechat.ui.NewFriendsMsgActivity;
 import cn.ucai.superwechat.ui.RegisterActivity;
 import cn.ucai.superwechat.ui.SettingsActivity;
 import cn.ucai.superwechat.ui.UserProfileActivity;
@@ -69,5 +70,9 @@ public class MFGT {
         intent.setClass(context,AddContactActivity.class);
         intent.putExtra(I.User.USER_NAME,username);
         startActivity(context,intent);
+    }
+
+    public static void gotoNewFriendsMsg(Activity context){
+        startActivity(context,NewFriendsMsgActivity.class);
     }
 }
