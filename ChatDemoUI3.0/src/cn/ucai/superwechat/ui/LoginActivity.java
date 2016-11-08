@@ -195,6 +195,7 @@ public class LoginActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     public void run() {
                         pd.dismiss();
+                        L.e(TAG,"环信服务器登录失败");
                         Toast.makeText(getApplicationContext(), getString(R.string.Login_failed) + message,
                                 Toast.LENGTH_SHORT).show();
                     }
