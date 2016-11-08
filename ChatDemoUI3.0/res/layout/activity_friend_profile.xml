@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1efef"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_layout_title"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginTop="15dp"
+        android:background="#fff">
+
+        <ImageView
+            android:id="@+id/findfriend_iv_userAvatar"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/default_avatar" />
+
+        <TextView
+            android:id="@+id/findfriend_tv_usernick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/findfriend_iv_userAvatar"
+            android:text="昵称"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/findfriend_tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/findfriend_tv_usernick"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/findfriend_iv_userAvatar"
+            android:text="微信账号"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/findfriend_tv_sz"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="设置备注和标签"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="地区"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/findfriend_tv_dq"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="成都"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="个性签名"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/findfriend_tv_qianming"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="成都"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/findfriend_btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="#4CAF50"
+        android:text="添加至通讯录"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/findfriend_btn_sendmessage"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="#4CAF50"
+        android:text="发消息"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/findfriend_btn_videocat"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="10dp"
+        android:background="#4CAF50"
+        android:text="视屏聊天"
+        android:textSize="18sp"
+        android:visibility="gone" />
+</LinearLayout>
