@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.runtimepermissions.PermissionsManager;
 import com.hyphenate.easeui.ui.EaseChatFragment;
@@ -55,10 +56,11 @@ public class ChatActivity extends BaseActivity{
     @Override
     public void onBackPressed() {
         chatFragment.onBackPressed();
-        if (EasyUtils.isSingleActivity(this)) {
+//        if (EasyUtils.isSingleActivity(this)) {
             Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra(I.ACTION_BACK_CONVERSATION,true);
             startActivity(intent);
-        }
+//        }
     }
     
     public String getToChatUsername(){
