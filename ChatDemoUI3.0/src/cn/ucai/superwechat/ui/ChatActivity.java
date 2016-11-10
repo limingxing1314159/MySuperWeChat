@@ -58,8 +58,8 @@ public class ChatActivity extends BaseActivity{
         chatFragment.onBackPressed();
 //        if (EasyUtils.isSingleActivity(this)) {
             Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra(I.ACTION_BACK_CONVERSATION,true);
-            startActivity(intent);
+        intent.putExtra(I.ACTION_BACK_CONVERSATION,true);
+        startActivity(intent);
 //        }
     }
     
