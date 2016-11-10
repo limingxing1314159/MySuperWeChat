@@ -211,6 +211,8 @@ public abstract class EaseContactListFragment extends EaseBaseFragment {
     public void refresh() {
         getContactList();
         contactListLayout.refresh();
+        query.getText().clear();
+        hideSoftKeyboard();
     }
     
 
